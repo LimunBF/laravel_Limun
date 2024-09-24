@@ -3,70 +3,43 @@
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
+$pekerjaan = [
+    [
+        'id' => '1',
+        'judul' => 'Guru',
+        'gaji' => 'Rp. 17.000.000'
+    ],
+    [
+        'id' => '2',
+        'judul' => 'Desainer',
+        'gaji' => 'Rp. 9.000.000'
+    ],
+    [
+        'id' => '3',
+        'judul' => 'Animator',
+        'gaji' => 'Rp. 15.000.000'
+    ]
+];
 
-Route::get('/', function () {
+class Pekerjaan{
+    public static function daftar_kerja(){
+        
+    }
+}
+
+Route::get('/', function () use($pekerjaan) {
     return view('home', [
-        'pekerjaan' => [
-            [
-                'id' => '1',
-                'judul' => 'Guru',
-                'gaji' => 'Rp. 17.000.000'
-            ],
-            [
-                'id' => '2',
-                'judul' => 'Desainer',
-                'gaji' => 'Rp. 9.000.000'
-            ],
-            [
-                'id' => '3',
-                'judul' => 'Animator',
-                'gaji' => 'Rp. 15.000.000'
-            ]
-        ]
+        'pekerjaan' => $pekerjaan
     ]);
 });
 
-Route::get('/listkerja', function () {
+Route::get('/listkerja', function () use($pekerjaan) {
     return view('listkerja', [
-        'pekerjaan' => [
-            [
-                'id' => '1',
-                'judul' => 'Guru',
-                'gaji' => 'Rp. 17.000.000'
-            ],
-            [
-                'id' => '2',
-                'judul' => 'Desainer',
-                'gaji' => 'Rp. 9.000.000'
-            ],
-            [
-                'id' => '3',
-                'judul' => 'Animator',
-                'gaji' => 'Rp. 15.000.000'
-            ]
-        ]
+        'pekerjaan' => $pekerjaan
     ]);
 });
 
-Route::get('/ listkerja/{id}', function ($id) {
-
-    $pekerjaan = [
-        [
-            'id' => '1',
-            'judul' => 'Guru',
-            'gaji' => 'Rp. 17.000.000'
-        ],
-        [
-            'id' => '2',
-            'judul' => 'Desainer',
-            'gaji' => 'Rp. 9.000.000'
-        ],
-        [
-            'id' => '3',
-            'judul' => 'Animator',
-            'gaji' => 'Rp. 15.000.000'
-        ]
-    ];
+Route::get('/ listkerja/{id}', function ($id) use ($pekerjaan) {
     $kerja = Arr::first($pekerjaan, fn($kerja) => $kerja['id'] == $id);
 
     // dd($kerja);
