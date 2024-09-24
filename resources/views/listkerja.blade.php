@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:heading>
-        Halaman LIST KERJA HASSAN
+        Halaman LIST KERJA PENYAMUN BERNAMA LIMUN
     </x-slot:heading>
     <ul>
         @foreach ($pekerjaan as $kerja)
