@@ -1,6 +1,8 @@
 <x-layout>
     <x-slot:heading>
-        Home
+        Halaman Home
     </x-slot:heading>
-    <h1>Ini adalah Halaman Home menggunakan file di view</h1>
+    @foreach ($pekerjaan as $kerja)
+    <li>{{$kerja['judul']}} </li>
+@endforeach
 </x-layout>

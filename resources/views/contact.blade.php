@@ -1,6 +1,7 @@
-<x-layout title="Contact">
+<x-layout>
     <x-slot:heading>
-        Contact
+        Halaman Contact
     </x-slot:heading>
-    <h1>  Ini Merupakan Halaman CONTACT dari Web Laravel Menggunakan Herd
+    <h1>Ini adalah Halaman CONTACT menggunakan file di View</h1>
+
 </x-layout>
