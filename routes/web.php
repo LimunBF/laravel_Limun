@@ -36,11 +36,9 @@ Route::get('/listkerja', function () {
     ]);
 });
 
-Route::get('/ listkerja/{id}', function ($id) use ($pekerjaan) {
-    $kerja = Arr::first($pekerjaan, fn($kerja) => $kerja['id'] == $id);
-
+Route::get('/ listkerja/{id}', function ($id) {
+    $kerja = pekerjaan::daftar_kerja($id);
     // dd($kerja);
-
     return view('kerja', ['kerja' => $kerja]);
 
 });

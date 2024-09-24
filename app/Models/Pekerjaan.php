@@ -1,5 +1,6 @@
 <?php
 namespace App\Models;
+use Illuminate\Support\Arr;
 
     class pekerjaan{
         public static function daftar_kerja(): array{
@@ -20,6 +21,9 @@ namespace App\Models;
                     'gaji' => 'Rp. 15.000.000'
                 ]
             ];
+        }
+        public static function temukan_pekerjaan(int $id): array{
+            return Arr::first(static:: daftar_kerja(), fn ($kerja) => $kerja['id'] == $id);
         }
     }
 
